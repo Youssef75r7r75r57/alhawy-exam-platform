@@ -465,14 +465,19 @@
     else if (action === "copy") copyText(actionElement.dataset.code);
     else if (action === "copy-student-link") {
       const studentUrl = new URL("student.html", window.location.href);
+      if (window.ALHAWY_STATIC_DEMO) studentUrl.searchParams.set("demo", "1");
       copyText(studentUrl.href, "تم نسخ رابط صفحة الطالب.");
     }
     else if (action === "open-student") {
       const studentUrl = new URL("student.html", window.location.href);
+      if (window.ALHAWY_STATIC_DEMO) studentUrl.searchParams.set("demo", "1");
       if (actionElement.dataset.code) studentUrl.searchParams.set("code", actionElement.dataset.code);
       window.open(studentUrl.href, "_blank", "noopener,noreferrer");
     }
-    else if (action === "add-video") beginVideoCreate();
+    else if (action === "add-video") {
+      if (window.ALHAWY_STATIC_DEMO) toast("رفع الفيديوهات غير متاح في نسخة العرض الثابتة.", "error");
+      else beginVideoCreate();
+    }
     else if (action === "cancel-video") { videoDraft = null; currentView = "videos"; render(); }
     else if (action === "copy-video-code") copyText(actionElement.dataset.code, `تم نسخ كود مشاهدة الفيديو: ${actionElement.dataset.code}`);
     else if (action === "edit-video") beginVideoEdit(actionElement.dataset.id);
