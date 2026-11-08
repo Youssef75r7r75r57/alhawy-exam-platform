@@ -1,0 +1,15 @@
+{
+  "name": "alhawy-exam-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Arabic learning platform for social studies and history - Ahmed Mostafa",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "busboy": "1.6.0"
+  },
+  "scripts": {
+    "start": "node server.js"
+  }
+}

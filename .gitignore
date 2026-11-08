@@ -1,0 +1,6 @@
+.miyaar-data.json
+.miyaar-data.json.tmp
+.env
+node_modules/
+videos/
+Thumbs.db
